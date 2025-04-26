@@ -5,29 +5,45 @@ import { text } from "@/components/TypingTest/useTyping";
 
 export default function Home() {
   return (
-    <div className="relative mx-auto w-full max-w-screen-sm flex-1 px-4 pt-20 border border-amber-300">
-      <header>
-        <div className="flex max-md:flex-col items-start gap-4 justify-between">
-          <div className="relative w-42 max-w-xs h-42 my-auto">
-            <Image
-              src="/globe.svg"
-              alt="PFP image"
-              fill
-              className="border border-amber-100 object-contain"
-            />
-          </div>
-          <div className="flex flex-col gap-0.5 my-auto border border-blue-200 items-start">
-            <h1 className="text-5xl font-excali">
-              Hala Walla <span className="text-purple-300">( hey )</span>,{" "}
-              <br /> Im Mohammad
-            </h1>
-            <TypingTest text={text} />
-            <div className="w-full flex justify-center">
-              <TypingTestButton />
-            </div>
-          </div>
+    <main
+      className="
+      flex-1
+      mx-auto
+      w-full
+      max-w-2xl
+      px-4 sm:px-6 lg:px-8
+      py-12
+      flex flex-col md:flex-row
+      items-center
+      gap-8
+    "
+    >
+      {/* Profile image */}
+      <section className="flex-shrink-0">
+        <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden">
+          <Image
+            src="/globe.svg"
+            alt="PFP image"
+            fill
+            className="object-cover"
+          />
         </div>
-      </header>
-    </div>
+      </section>
+      <section
+        className="
+        flex flex-col
+        items-center md:items-start
+        text-center md:text-left
+        gap-4
+      "
+      >
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-excali">
+          Hala Walla <span className="text-purple-300">( hey )</span>,<br />
+          I'm Mohammad
+        </h1>
+        <TypingTest text={text} />
+        <TypingTestButton />
+      </section>
+    </main>
   );
 }
