@@ -5,23 +5,21 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRightIcon } from "lucide-react";
 import { useState } from "react";
 
-interface ProjectCardProps {
+interface AwardCardProps {
   title: string;
-  shortDescription: string;
-  description: string;
-  period: string;
-  technologies: string[];
-  githubUrl?: string;
-  demoUrl?: string;
+  organization: string;
+  date: string;
+  description?: string;
+  type?: string;
 }
 
-export const ProjectCard = ({
+export const AwardCard = ({
   title,
-  shortDescription,
+  organization,
+  date,
   description,
-  period,
-  technologies,
-}: ProjectCardProps) => {
+  type,
+}: AwardCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -38,7 +36,7 @@ export const ProjectCard = ({
           <div className="flex items-start justify-between w-full">
             <div className="flex flex-col gap-2">
               <h3 className="inline-flex items-center group font-medium">
-                {title}
+                {organization}
                 <motion.div
                   animate={{ rotate: isExpanded ? 90 : 0 }}
                   transition={{ duration: 0.3 }}
@@ -50,17 +48,22 @@ export const ProjectCard = ({
                   />
                 </motion.div>
               </h3>
-              <p className="text-sm text-muted-foreground">
-                {shortDescription}
-              </p>
+              <div className="flex items-start justify-between">
+                <div className="text-sm">{title}</div>
+                {type && (
+                  <div className="text-xs text-muted-foreground ml-2">
+                    {type}
+                  </div>
+                )}
+              </div>
             </div>
             <span className="text-sm tabular-nums text-muted-foreground">
-              {period}
+              {date}
             </span>
           </div>
 
           <AnimatePresence>
-            {isExpanded && (
+            {description && isExpanded && (
               <motion.div
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
@@ -68,19 +71,7 @@ export const ProjectCard = ({
                 transition={{ duration: 0.3 }}
                 className="mt-2 text-sm overflow-hidden text-muted-foreground"
               >
-                <p className="mb-4">{description}</p>
-                <div className="flex justify-end">
-                  <div className="flex flex-wrap gap-1.5">
-                    {technologies.map((tech, index) => (
-                      <span
-                        key={index}
-                        className="text-xs px-2 py-0.5 border border-dashed border-muted-foreground/40"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                {description}
               </motion.div>
             )}
           </AnimatePresence>
