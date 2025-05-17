@@ -2,8 +2,8 @@ import Image from "next/image";
 // import TypingTestButton from "@/components/TypingTest/TypingTestButton";
 import TypingTest from "@/components/TypingTest";
 import { text } from "@/components/TypingTest/useTyping";
-import Projects from "./(projects)/Projects";
-
+import { WorkCard } from "@/components/WorkCard";
+import { ProjectCard } from "@/components/ProjectCard";
 
 export default function Home() {
   return (
@@ -48,8 +48,50 @@ export default function Home() {
           {/* <TypingTestButton /> */}
         </section>
       </div>
-
-      <Projects />
+      <section className="work w-full">
+        <h1 className="text-2xl font-bold pb-1">Experience</h1>
+        <div className="projects-wrapper w-full flex flex-col gap-8 ">
+          <WorkCard
+            logoUrl="/kaust.png"
+            company="KAUST"
+            title="Researcher"
+            period="2023"
+            description="Optimzed a novel non-linear opinion dynamic model to be used in human-aware path planning. Basically a lot of calculus, linear algebra, python and c++"
+            positionType="Full-time"
+            href="https://ats.kaust.edu.sa/risclab"
+          />
+          <WorkCard
+            logoUrl="/company-logo.png"
+            company="Valorant"
+            title="MENA Player"
+            period="2022 - 2024"
+            description="Reached Immortal 3 as a one-trick Jett main. top 800 (17 Million players worlwide)"
+            positionType="most school nights"
+            href="https://koalaware.com"
+          />
+        </div>
+      </section>
+      <section className="projects w-full">
+        <h1 className="text-2xl font-bold">Projects</h1>
+        <div className="projects-wrapper w-full flex flex-col gap-8 border border-red-100">
+          <ProjectCard
+            title="Loomi"
+            period="2025"
+            description="Your project description here"
+            technologies={["Next.js", "TypeScript", "TailwindCSS"]}
+            githubUrl="https://github.com/your-repo"
+            demoUrl="https://your-demo.com"
+          />
+          <ProjectCard
+            title="Loomi"
+            period="2025"
+            description="Your project description here"
+            technologies={["Next.js", "TypeScript", "TailwindCSS"]}
+            githubUrl="https://github.com/your-repo"
+            demoUrl="https://your-demo.com"
+          />
+        </div>
+      </section>
     </main>
   );
 }

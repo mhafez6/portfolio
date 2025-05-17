@@ -1,6 +1,6 @@
 
 
-export const text = "A Monkeytype addict studying Computer Science and Math at MIT with an interest in AI, Next js abstractions, and binge reading Paul Graham essays. "
+export const text = "An incoming fresham at MIT with an love for Math, AI, and watching One Piece theories."
 
 export function TypingTest({text} : {text: string}){
   

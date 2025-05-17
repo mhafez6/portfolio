@@ -5,7 +5,7 @@ export default function TypingTest({ text }: { text: string }) {
     <p
       className="
       font-mono
-      text-sm
+      text-m
       leading-relaxed
       whitespace-pre-wrap
       break-words
